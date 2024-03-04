@@ -1,0 +1,58 @@
+﻿@page
+@model DeploymentAppWithDb.Pages.Expenses.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Expense</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Expense.Description" class="control-label"></label>
+                <input asp-for="Expense.Description" class="form-control" />
+                <span asp-validation-for="Expense.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.DateIncurred" class="control-label"></label>
+                <input asp-for="Expense.DateIncurred" class="form-control" />
+                <span asp-validation-for="Expense.DateIncurred" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Location" class="control-label"></label>
+                <input asp-for="Expense.Location" class="form-control" />
+                <span asp-validation-for="Expense.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Price" class="control-label"></label>
+                <input asp-for="Expense.Price" class="form-control" />
+                <span asp-validation-for="Expense.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.ExpenseTypeID" class="control-label"></label>
+                <select asp-for="Expense.ExpenseTypeID" class ="form-control" asp-items="ViewBag.ExpenseTypeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.UserID" class="control-label"></label>
+                <input asp-for="Expense.UserID" class="form-control" />
+                <span asp-validation-for="Expense.UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
